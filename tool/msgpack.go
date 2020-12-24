@@ -3,13 +3,14 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"github.com/vmihailenco/msgpack"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 
-	"github.com/eddwinpaz/github.com/eddwinpaz/go-url-shortener/shortener"
+	"github.com/vmihailenco/msgpack"
+
+	"github.com/eddwinpaz/go-url-shortener/shortener"
 )
 
 func httpPort() string {
@@ -23,7 +24,7 @@ func httpPort() string {
 func main() {
 	address := fmt.Sprintf("http://localhost%s", httpPort())
 	redirect := shortener.Redirect{}
-	redirect.URL = "https://github.com/tensor-programming?tab=repositories"
+	redirect.URL = "github.com/eddwinpaz/?tab=repositories"
 
 	body, err := msgpack.Marshal(&redirect)
 	if err != nil {
