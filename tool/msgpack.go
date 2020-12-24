@@ -14,7 +14,7 @@ import (
 )
 
 func httpPort() string {
-	port := "8000"
+	port := "9000"
 	if os.Getenv("PORT") != "" {
 		port = os.Getenv("PORT")
 	}
@@ -24,7 +24,7 @@ func httpPort() string {
 func main() {
 	address := fmt.Sprintf("http://localhost%s", httpPort())
 	redirect := shortener.Redirect{}
-	redirect.URL = "github.com/eddwinpaz/?tab=repositories"
+	redirect.URL = "https://github.com/eddwinpaz"
 
 	body, err := msgpack.Marshal(&redirect)
 	if err != nil {
@@ -36,8 +36,8 @@ func main() {
 		log.Fatalln(err)
 	}
 	defer resp.Body.Close()
-
 	body, err = ioutil.ReadAll(resp.Body)
+
 	if err != nil {
 		log.Fatalln(err)
 	}
