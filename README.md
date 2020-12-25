@@ -24,6 +24,13 @@ go run msgpack.go
 
 POST http://localhost:9000/
 
+## json body
+```
+{
+   "url":"https://google.com"
+}
+```
+## response
 ```
 {
     "code": "eSshzhbGg",
@@ -33,7 +40,7 @@ POST http://localhost:9000/
 ```
 
 GET http://localhost:9000/eSshzhbGg
-
+## response
 ```
 Will render http://google.com
 ```
